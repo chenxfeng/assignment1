@@ -3,6 +3,10 @@ CXXFLAGS=-I../common -Iobjs/ -O3 -Wall
 ISPC=ispc
 # note: change target to avx-x2 for AVX capable machines
 ISPCFLAGS=-O2 --target=sse4-x2 --arch=x86-64
+# ISPCFLAGS=-O2 --target=sse4 --arch=x86-64
+# ISPCFLAGS=-O2 --target=avx --arch=x86-64
+# ISPCFLAGS=-O2 --target=avx-x2 --arch=x86-64
+### myadd: x2 represent using 2 core
 
 APP_NAME=mandelbrot_ispc
 OBJDIR=objs
@@ -19,9 +23,14 @@ default: $(APP_NAME)
 
 .PHONY: dirs clean
 
+###/bin/mkdir -p $(OBJDIR)/
+###		mkdir $(OBJDIR)
 dirs:
 		/bin/mkdir -p $(OBJDIR)/
 
+###/bin/rm -rf $(OBJDIR) *.ppm *~ $(APP_NAME)
+###		del /Q *.ppm $(APP_NAME).exe
+###		rmdir /Q /S $(OBJDIR)
 clean:
 		/bin/rm -rf $(OBJDIR) *.ppm *~ $(APP_NAME)
 

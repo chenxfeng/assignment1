@@ -67,6 +67,8 @@ export void mandelbrot_ispc_withtasks(uniform float x0, uniform float y0,
                                       uniform int maxIterations,
                                       uniform int output[])
 {
+    ///myadd: more task number 2 4 8 16 32
+    const int numOfTask = 2;
 
     uniform int rowsPerTask = height / 2;
 
